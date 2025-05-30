@@ -144,7 +144,9 @@ DEFAULT_HEADERS = {
     'Sec-Fetch-Dest': 'empty',
     'Sec-Fetch-Mode': 'cors',
     'Sec-Fetch-Site': 'same-origin',
-    'Baggage': 'sentry-public_key=b311e0f2690c81f25e2c4cf6d4f7ce1c'
+    'Baggage': 'sentry-public_key=b311e0f2690c81f25e2c4cf6d4f7ce1c',
+    "X-Statsig-Id": requests.get('https://grok-statsig.vercel.app/get_grok_statsig').json().get('id', ''),
+    "X-Xai-Request-Id": str(uuid.uuid4()),
 }
 
 class AuthTokenManager:
